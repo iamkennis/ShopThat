@@ -9,7 +9,7 @@ import Cart from './Cart'
 
 
 export default function App() {
-  const [cart, setCart] = useState("")
+  const [cart, setCart] = useState([])
 
   function addToCart(id, sku) {
     setCart((items) => {
@@ -42,9 +42,9 @@ export default function App() {
           <Route path="/" element={<h1>Welcome to Craved Rock Fitness</h1>} />
             <Route path="/:category" element={<Products />} />
             <Route path="/:category/:id" element={<Detail
-              addToCart={addToCart}
+              addToCart={addToCart}/>} />
+            <Route path="/cart" element={<Cart cart={cart}
               updateQuantity={updateQuantity} />} />
-            <Route path="/cart" element={<Cart cart={cart} />} />
           </Routes>
         </main>
       </div>
